@@ -1,0 +1,10 @@
+[user]
+	name = luke
+	email = lminer@gmail.com
+[push]
+	default = current 
+[core]
+	editor = subl -n -w
+	autocrlf = input
+[alias]
+    new="!f() { git checkout -b lim-`date '+%Y.%m.%d'`-$1; git push -u origin; }; f" # Create a new branch with prefix.
