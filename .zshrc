@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/lminer/.oh-my-zsh"
+export ZSH="/Users/lukeminer/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -66,34 +66,47 @@ plugins=(
   git
   zsh-autosuggestions
   zsh-syntax-highlighting
+  zsh-z
 )
 
 source $ZSH/oh-my-zsh.sh
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/lukeminer/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/lukeminer/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/lukeminer/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/lukeminer/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
 # User configuration
-PATH="/home/lminer/anaconda3/bin:/usr/local/cuda-9.0/bin:$PATH"
-LD_LIBRARY_PATH=/usr/local/cuda/lib64:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 fpath+=('/usr/local/lib/node_modules/pure-prompt/functions')
 autoload -U promptinit; promptinit
 prompt pure
-# export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# Customize to your needs...
+alias sep='conda activate separate'
+alias tpu="gcloud compute ssh --zone us-central1-b instance-1 --ssh-flag='-A'"
+alias gpu="gcloud compute ssh --zone us-central1-b gpu-2 --ssh-flag='-A'"
+alias gpu_tunnel="gcloud compute ssh --zone us-central1-b gpu-2 -- -N -p 22 -L 127.0.0.1:9003:localhost:8888"
+alias tensor1='ssh -A lminer@192.195.82.152 -p 836'
+alias tensor2='ssh -A lminer@192.195.82.152 -p 849'
+alias tensor_local1='ssh -A lminer@10.10.2.159 -p 22'
+alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+alias tensor_local2='ssh -A lminer@10.10.2.245 -p 22'
+alias rstudio_server='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --app=http://localhost:9000'
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+# Credentials for accessing buckets
+#export GOOGLE_APPLICATION_CREDENTIALS="/Users/lukeminer/tunebend-separate-d8a951aecf04.json"
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/lukeminer/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/lukeminer/google-cloud-sdk/path.zsh.inc'; fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-alias keras="tmux a -t keras || tmux new -s keras 'cd ~/git/separate;pipenv shell'"
-alias jup="tmux a -t jupyter || tmux new -s jupyter 'cd ~/git/separate;pipenv shell'"
-alias tboard="tmux a -t tboard || tmux new -s tboard 'cd ~/git/separate;pipenv shell'"
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/lukeminer/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/lukeminer/google-cloud-sdk/completion.zsh.inc'; fi
