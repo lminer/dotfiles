@@ -43,9 +43,11 @@ alias tensor1='ssh -A lminer@192.195.82.152 -p 836'
 alias tensor2='ssh -A lminer@192.195.82.152 -p 849'
 alias tensor_local1='ssh -A lminer@10.10.2.159 -p 22'
 alias tensor_local2='ssh -A lminer@10.10.2.245 -p 22'
+alias clean_git='git fetch -p && for branch in `git branch -vv | grep ": gone]" | awk "{print $1}"`; do git branch -D $branch; done'
+alias vim='nvim'
 
 # Credentials for accessing buckets
-#export GOOGLE_APPLICATION_CREDENTIALS="/Users/lukeminer/tunebend-separate-d8a951aecf04.json"
+#export GOOGLE_APPLICATION_CREDENTIALS="$HOME/tunebend-separate-d8a951aecf04.json"
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 

@@ -20,6 +20,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'morhetz/gruvbox'
 Plugin 'vim-airline/vim-airline'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'bcicen/vim-jfmt'
 
 Bundle 'Valloric/YouCompleteMe'
 " ..
