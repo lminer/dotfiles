@@ -5,7 +5,7 @@ import subprocess
 
 def get_vimrc_locations():
     version_info = subprocess.check_output("vim --version", shell=True)
-    return [os.path.expandvars(x) for x in re.findall(r'"(.*[_\.]g?vimrc)"', version_info)]
+    return [os.path.expandvars(x) for x in re.findall(r'"(.*[_\.]g?vimrc)"', version_info.decode('utf-8')]
 
 
 def get_git_repo(bundle_str):
