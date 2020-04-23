@@ -22,8 +22,7 @@ Plugin 'morhetz/gruvbox'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'bcicen/vim-jfmt'
-
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'ycm-core/YouCompleteMe'
 " ..
 
 " All of your Plugins must be added before the following line
