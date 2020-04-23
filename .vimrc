@@ -34,20 +34,21 @@ let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 set nu
 
-let python_highlight_all=1
 syntax on
+syntax enable
+
+" show line numbers
+set number
+set ts=4
+set autoindent
+set expandtab
+set shiftwidth=4
+set cursorline
+set showmatch
+let python_highlight_all=1
 
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:syntastic_mode_map = { "mode": "passive" }
 colorscheme gruvbox
 set background=dark
-
-"au BufNewFile,BufRead *.py
-"    \ set tabstop=4
-"    \ set softtabstop=4
-"    \ set shiftwidth=4
-"    \ set textwidth=79
-"    \ set expandtab
-"    \ set autoindent
-"    \ set fileformat=unix
