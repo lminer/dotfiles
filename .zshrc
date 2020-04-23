@@ -1,5 +1,4 @@
 export ZSH="$HOME/.oh-my-zsh"
-export NODE_MODULES="/usr/local/lib/node_modules"
 
 ZSH_THEME=""
 
