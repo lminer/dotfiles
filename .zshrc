@@ -29,7 +29,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # User configuration
-fpath+=("$NODE_MODULES/pure-prompt/functions")
+fpath+=("$ZSH/custom/pure")
 autoload -U promptinit; promptinit
 prompt pure
 
