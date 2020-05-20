@@ -1,4 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
+export PYTHONDONTWRITEBYTECODE=1
 
 ZSH_THEME=""
 
